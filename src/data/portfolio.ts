@@ -158,7 +158,56 @@ export const invariantHighlights = [
   { id: "B9", rule: "base_uom item tidak boleh diubah setelah ada stock_move", enforced: "trigger" },
 ]
 
+export const accountingDomain = {
+  title: "Rekayasa Akuntansi & Sistem Finansial Deterministik",
+  subtitle:
+    "Saya tidak hanya menulis kode backend, tetapi menguasai logika matematis dan pembukuan finansial standar PSAK/SAK. Seluruh aturan akuntansi ditegakkan langsung pada level skema database.",
+  coreConcepts: [
+    {
+      concept: "Chart of Accounts (COA) & Multi-tier Ledger",
+      desc: "Struktur hirarki COA 5 kategori utama (Aset, Kewajiban, Ekuitas, Pendapatan, Beban) dengan parent-child akun, normal balance enforcement (Debit vs Kredit), dan isolasi multi-outlet / multi-cabang.",
+      implementation: "Diimplementasikan di CAREDI & ERP Resto dengan validasi integritas akun real-time.",
+    },
+    {
+      concept: "Double-Entry Bookkeeping & Append-Only Ledger",
+      desc: "Setiap transaksi finansial wajib menghasilkan minimal 2 baris jurnal balance (Σ Debit = Σ Kredit). Jurnal yang sudah berstatus 'Posted' tidak boleh diedit atau dihapus; koreksi hanya sah via Reversal Entry berpasangan.",
+      implementation: "Ditegakkan via PostgreSQL deferred trigger dan append-only transaction logs.",
+    },
+    {
+      concept: "HPP FIFO & Periodic/Perpetual Valuation",
+      desc: "Metode First-In, First-Out murni pada pergerakan batch barang. Barang yang masuk gudang pertama kali dijadikan acuan harga pokok penjualan saat stok keluar, mencegah distorsi valuasi saat inflasi harga bahan baku.",
+      implementation: "Layer kalkulasi FIFO otomatis pada modul inventori distributor CAREDI & stock-ledger.",
+    },
+    {
+      concept: "Bill of Materials (BOM) & Biaya Produksi F&B",
+      desc: "Konversi bahan mentah menjadi produk jadi (resep/komposit). Setiap penjualan 1 porsi menu secara otomatis memicu jurnal konsumsi bahan baku sesuai standar porsi gramatur (BOM) dan mendebit akun HPP serta mengkredit akun Persediaan Bahan Baku.",
+      implementation: "Modul Cost Guard dan kalkulasi otomatis resep pada ERP Resto & Coffee Shop.",
+    },
+    {
+      concept: "Manajemen Piutang & Utang (AR / AP + Aging)",
+      desc: "Pencatatan termin kredit pelanggan, jadwal jatuh tempo faktur, aging schedule report (0-30, 31-60, 61-90, >90 hari), serta rekonsiliasi penerimaan kas/bank terhadap nomor faktur tertagih.",
+      implementation: "Diambil langsung dari pengalaman lapangan BUMDes dan diotomasi pada dashboard CAREDI.",
+    },
+    {
+      concept: "Laporan Keuangan Otomatis (SAK Compliant)",
+      desc: "Generasi otomatis Neraca Saldo (Trial Balance), Buku Besar (General Ledger), Laporan Laba Rugi (Profit & Loss), dan Neraca Keuangan (Balance Sheet) yang selalu seimbang dan akurat hingga digit satuan.",
+      implementation: "Semua angka disimpan sebagai bigint integer rupiah untuk eliminasi floating-point error.",
+    },
+  ],
+}
+
 export const skillGroups = [
+  {
+    group: "Akuntansi & Domain Finansial",
+    items: [
+      "Chart of Accounts (COA) & General Ledger",
+      "Double-Entry (Σ Debit = Σ Kredit, Append-only)",
+      "HPP FIFO, Moving Average & Valuasi Stok",
+      "Bill of Materials (BOM) & Resep Produksi F&B",
+      "Piutang/Utang (AR/AP) & Aging Report",
+      "Laporan Keuangan: Neraca, Laba Rugi, Cashflow",
+    ],
+  },
   {
     group: "AI & LLM Integration",
     items: [
@@ -173,26 +222,17 @@ export const skillGroups = [
     items: [
       "Laravel 13, PHP 8.3, REST API",
       "PostgreSQL 17: RLS, constraint, trigger, cursor pagination",
-      "Akuntansi: double-entry, HPP FIFO, AR/AP, laporan SAK",
       "Nomor dokumen atomic, append-only ledger",
+      "Integer bigint rupiah (Zero-float financial math)",
     ],
   },
   {
-    group: "Frontend",
+    group: "Frontend & DevOps",
     items: [
       "Vue 3 + TypeScript + Inertia.js",
       "React 19 + Vite + Tailwind v4 + shadcn/ui",
-      "Real-time chat UI, multi-approval workflow",
-      "ESC-P dot matrix printing",
-    ],
-  },
-  {
-    group: "DevOps & Deployment",
-    items: [
-      "VPS Ubuntu: Azure, Hetzner — setup dari nol",
-      "Docker, Dokploy (Swarm + Traefik)",
-      "Cloudflare: DNS, proxy, R2 backup",
-      "GitHub webhook CI/CD",
+      "Docker, Dokploy (Swarm + Traefik), VPS Ubuntu",
+      "Cloudflare: DNS, proxy, R2 backup, CI/CD",
     ],
   },
 ]

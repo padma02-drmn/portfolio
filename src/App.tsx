@@ -18,6 +18,7 @@ import IntroOverlay from "@/components/intro-overlay"
 import { ProjectDialog } from "@/components/project-dialog"
 import { TechIcon } from "@/components/tech-icon"
 import {
+  accountingDomain,
   adrHighlights,
   invariantHighlights,
   principles,
@@ -40,9 +41,10 @@ function Header() {
         <nav className="flex items-center gap-6 font-mono text-xs text-neutral-500">
           <a href="#about" className="hover:text-black transition-colors">01.BIOGRAFI</a>
           <a href="#projects" className="hover:text-black transition-colors">02.PROYEK</a>
-          <a href="#architecture" className="hover:text-black transition-colors">03.ARSITEKTUR</a>
-          <a href="#skills" className="hover:text-black transition-colors">04.SKILLS</a>
-          <a href="#contact" className="hover:text-black transition-colors">05.KONTAK</a>
+          <a href="#accounting" className="hover:text-black transition-colors">03.AKUNTANSI</a>
+          <a href="#architecture" className="hover:text-black transition-colors">04.ARSITEKTUR</a>
+          <a href="#skills" className="hover:text-black transition-colors">05.SKILLS</a>
+          <a href="#contact" className="hover:text-black transition-colors">06.KONTAK</a>
         </nav>
       </div>
     </header>
@@ -368,12 +370,65 @@ export default function App() {
           </div>
         </section>
 
-        {/* Section 02: Architecture & Decision Records */}
+        {/* Section 03: Accounting Engineering & Domain Expertise */}
+        <section id="accounting" className="mx-auto w-full max-w-5xl px-6 py-20 border-b border-black/10">
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <span className="font-mono text-xs text-neutral-500 uppercase tracking-widest block font-semibold">
+                03 / Domain Bisnis &amp; Finansial
+              </span>
+              <h2 className="font-display text-3xl font-bold text-black tracking-tight mt-1">
+                {accountingDomain.title}
+              </h2>
+            </div>
+            <span className="hidden sm:inline font-mono text-xs text-neutral-500">
+              DOUBLE-ENTRY &amp; SAK COMPLIANT
+            </span>
+          </div>
+
+          <p className="text-neutral-600 max-w-3xl text-sm sm:text-base leading-relaxed mb-10">
+            {accountingDomain.subtitle}
+          </p>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {accountingDomain.coreConcepts.map((item, idx) => (
+              <div 
+                key={idx}
+                className="rounded-xl border border-black/10 bg-white p-6 shadow-sm hover:border-black/30 hover:shadow-md transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2 font-mono text-xs text-neutral-400 mb-2 font-semibold">
+                    <span>DOM-0{idx + 1}</span>
+                    <span>//</span>
+                    <span className="text-emerald-700 font-bold">CORE PRINCIPLE</span>
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-black mb-3">
+                    {item.concept}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed mb-4 font-sans">
+                    {item.desc}
+                  </p>
+                </div>
+
+                <div className="border-t border-black/10 pt-3 bg-neutral-50 -mx-6 -mb-6 p-4 rounded-b-xl border-dashed">
+                  <span className="font-mono text-[11px] text-neutral-500 block uppercase font-bold mb-0.5">
+                    Penerapan Nyata di Kode:
+                  </span>
+                  <p className="font-mono text-xs text-neutral-800">
+                    {item.implementation}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Section 04: Architecture & Decision Records */}
         <section id="architecture" className="mx-auto w-full max-w-5xl px-6 py-20 border-b border-black/10">
           <div className="flex items-center justify-between mb-10">
             <div>
               <span className="font-mono text-xs text-neutral-500 uppercase tracking-widest block font-semibold">
-                02 / Arsitektur
+                04 / Arsitektur
               </span>
               <h2 className="font-display text-3xl font-bold text-black tracking-tight mt-1">
                 Engineering Invariants &amp; ADR
@@ -440,12 +495,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* Section 03: Skills Matrix */}
+        {/* Section 05: Skills Matrix */}
         <section id="skills" className="mx-auto w-full max-w-5xl px-6 py-20 border-b border-black/10">
           <div className="flex items-center justify-between mb-10">
             <div>
               <span className="font-mono text-xs text-neutral-500 uppercase tracking-widest block font-semibold">
-                03 / Kapabilitas
+                05 / Kapabilitas
               </span>
               <h2 className="font-display text-3xl font-bold text-black tracking-tight mt-1">
                 Tech Stack &amp; Domain Knowledge
@@ -491,7 +546,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Section 04: Contact */}
+        {/* Section 06: Contact */}
         <section id="contact" className="mx-auto w-full max-w-5xl px-6 py-20">
           <div className="rounded-2xl border border-black/10 bg-white p-8 sm:p-14 text-center relative overflow-hidden tech-grid shadow-md">
             <div className="max-w-xl mx-auto">
