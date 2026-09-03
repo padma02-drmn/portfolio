@@ -8,15 +8,20 @@ import {
   Cpu, 
   Layers, 
   Terminal, 
-  Copy,
-  Check,
-  ChevronRight
+  Copy, 
+  Check, 
+  Download,
+  Activity,
+  Code2,
+  FileCheck
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GithubMark } from "@/components/github-mark"
 import IntroOverlay from "@/components/intro-overlay"
 import { ProjectDialog } from "@/components/project-dialog"
 import { TechIcon } from "@/components/tech-icon"
+import { MetricsSimulator } from "@/components/metrics-simulator"
+import { ArchitectureFlowchart } from "@/components/architecture-flowchart"
 import {
   accountingDomain,
   adrHighlights,
@@ -102,6 +107,13 @@ function Hero() {
               </Button>
 
               <Button 
+                onClick={() => window.open("/cv-padma.pdf", "_blank")}
+                className="bg-emerald-700 text-white hover:bg-emerald-800 font-mono text-xs font-semibold uppercase tracking-wider px-5 py-5 rounded shadow-sm"
+              >
+                <Download className="size-4 mr-2" /> Unduh CV (PDF)
+              </Button>
+
+              <Button 
                 variant="outline" 
                 onClick={copyEmail}
                 className="border-black/15 bg-white hover:bg-neutral-100 text-black font-mono text-xs rounded py-5"
@@ -137,6 +149,40 @@ function Hero() {
             </div>
           </div>
 
+        </div>
+      </div>
+
+      {/* Metrics Impact Bar */}
+      <div className="border-t border-black/10 bg-neutral-50/70">
+        <div className="mx-auto max-w-5xl px-6 py-4 grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs divide-y sm:divide-y-0 sm:divide-x divide-black/10">
+          <div className="flex items-center gap-3 pt-2 sm:pt-0">
+            <Activity className="size-4 text-emerald-700 flex-shrink-0" />
+            <div>
+              <span className="text-black font-bold text-sm sm:text-base block leading-none">62/62 (100%)</span>
+              <span className="text-neutral-500 text-[11px]">Feature Tests Pass</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 pt-2 sm:pt-0 sm:pl-4">
+            <FileCheck className="size-4 text-black flex-shrink-0" />
+            <div>
+              <span className="text-black font-bold text-sm sm:text-base block leading-none">35+ ADR</span>
+              <span className="text-neutral-500 text-[11px]">Architecture Records</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 pt-2 sm:pt-0 sm:pl-4">
+            <Code2 className="size-4 text-black flex-shrink-0" />
+            <div>
+              <span className="text-black font-bold text-sm sm:text-base block leading-none">0.00% Float Error</span>
+              <span className="text-neutral-500 text-[11px]">Integer Bigint Math</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 pt-2 sm:pt-0 sm:pl-4">
+            <ShieldCheck className="size-4 text-emerald-700 flex-shrink-0" />
+            <div>
+              <span className="text-black font-bold text-sm sm:text-base block leading-none">3 Deployed Apps</span>
+              <span className="text-neutral-500 text-[11px]">Production Verified</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -368,6 +414,11 @@ export default function App() {
               />
             ))}
           </div>
+
+          {/* Visual Architecture Flowchart */}
+          <div className="mt-12">
+            <ArchitectureFlowchart />
+          </div>
         </section>
 
         {/* Section 03: Accounting Engineering & Domain Expertise */}
@@ -389,6 +440,11 @@ export default function App() {
           <p className="text-neutral-600 max-w-3xl text-sm sm:text-base leading-relaxed mb-10">
             {accountingDomain.subtitle}
           </p>
+
+          {/* Interactive Hotel Simulator */}
+          <div className="mb-10">
+            <MetricsSimulator />
+          </div>
 
           <div className="grid gap-6 md:grid-cols-2">
             {accountingDomain.coreConcepts.map((item, idx) => (
