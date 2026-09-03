@@ -34,16 +34,20 @@ import {
 } from "@/data/portfolio"
 
 function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
-    <header className="sticky top-0 z-40 border-b border-black/10 bg-[#fafafa]/90 backdrop-blur-md">
-      <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-6">
+    <header className="sticky top-0 z-40 border-b border-black/10 bg-[#fafafa]/95 backdrop-blur-md">
+      <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4 sm:px-6">
         <a href="#top" className="flex items-center gap-2.5 group">
           <span className="flex size-2 rounded-full bg-emerald-600 animate-pulse" />
           <span className="font-mono text-xs font-bold tracking-wider uppercase text-black">
             padma<span className="text-neutral-400">.sys</span>
           </span>
         </a>
-        <nav className="flex items-center gap-6 font-mono text-xs text-neutral-500">
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-6 font-mono text-xs text-neutral-500">
           <a href="#about" className="hover:text-black transition-colors">01.BIOGRAFI</a>
           <a href="#projects" className="hover:text-black transition-colors">02.PROYEK</a>
           <a href="#accounting" className="hover:text-black transition-colors">03.AKUNTANSI</a>
@@ -51,7 +55,70 @@ function Header() {
           <a href="#skills" className="hover:text-black transition-colors">05.SKILLS</a>
           <a href="#contact" className="hover:text-black transition-colors">06.KONTAK</a>
         </nav>
+
+        {/* Mobile Toggle Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-1.5 rounded border border-black/10 text-neutral-700 hover:text-black"
+          aria-label="Toggle Navigation Menu"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-5">
+            {mobileMenuOpen ? (
+              <path d="M18 6 6 18M6 6l12 12" />
+            ) : (
+              <path d="M4 12h16M4 6h16M4 18h16" />
+            )}
+          </svg>
+        </button>
       </div>
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-b border-black/10 bg-white px-6 py-4 space-y-3 font-mono text-xs">
+          <a 
+            href="#about" 
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-1.5 text-neutral-700 hover:text-black font-semibold border-b border-black/5"
+          >
+            01. BIOGRAFI
+          </a>
+          <a 
+            href="#projects" 
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-1.5 text-neutral-700 hover:text-black font-semibold border-b border-black/5"
+          >
+            02. PROYEK
+          </a>
+          <a 
+            href="#accounting" 
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-1.5 text-neutral-700 hover:text-black font-semibold border-b border-black/5"
+          >
+            03. AKUNTANSI
+          </a>
+          <a 
+            href="#architecture" 
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-1.5 text-neutral-700 hover:text-black font-semibold border-b border-black/5"
+          >
+            04. ARSITEKTUR
+          </a>
+          <a 
+            href="#skills" 
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-1.5 text-neutral-700 hover:text-black font-semibold border-b border-black/5"
+          >
+            05. SKILLS
+          </a>
+          <a 
+            href="#contact" 
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-1.5 text-neutral-700 hover:text-black font-semibold"
+          >
+            06. KONTAK
+          </a>
+        </div>
+      )}
     </header>
   )
 }
