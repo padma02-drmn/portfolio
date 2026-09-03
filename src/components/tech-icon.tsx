@@ -1,67 +1,143 @@
 export function TechIcon({ name, className = "size-3.5" }: { name: string; className?: string }) {
-  const normalized = name.toLowerCase()
+  const norm = name.toLowerCase()
 
-  if (normalized.includes("laravel") || normalized.includes("php")) {
+  // 1. DOCKER (Whale with containers)
+  if (norm.includes("docker")) {
     return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="m16 16 4-4-4-4" />
-        <path d="M8 8 4 12l4 4" />
-        <path d="m14 4-4 16" />
-      </svg>
-    )
-  }
-  if (normalized.includes("vue") || normalized.includes("react")) {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)" />
-        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)" />
-        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)" />
-        <circle cx="12" cy="12" r="2" fill="currentColor" />
-      </svg>
-    )
-  }
-  if (normalized.includes("postgres") || normalized.includes("mysql") || normalized.includes("database") || normalized.includes("drizzle")) {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <ellipse cx="12" cy="5" rx="9" ry="3" />
-        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-        <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
-      </svg>
-    )
-  }
-  if (normalized.includes("docker") || normalized.includes("dokploy") || normalized.includes("vps") || normalized.includes("vps")) {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-        <polyline points="3.29 7 12 12 20.71 7" />
-        <line x1="12" y1="22" x2="12" y2="12" />
-      </svg>
-    )
-  }
-  if (normalized.includes("gemini") || normalized.includes("ai") || normalized.includes("llm") || normalized.includes("agent")) {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M12 2v20" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    )
-  }
-  if (normalized.includes("typescript") || normalized.includes("javascript") || normalized.includes("vite")) {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <polyline points="4 7 4 4 20 4 20 7" />
-        <line x1="9" y1="20" x2="15" y2="20" />
-        <line x1="12" y1="4" x2="12" y2="20" />
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m-2.954 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.145a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186m5.884 2.714h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186H8.1a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H5.145a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185M23.766 12.07c-.318-.216-.84-.337-1.467-.337-.17 0-.34.01-.505.027-.298-.797-.872-1.378-1.573-1.636l-.37-.137-.253.308a4.912 4.912 0 00-.978 2.052 7.02 7.02 0 00-3.085-.716H.503a.503.503 0 00-.472.673c1.08 2.977 3.528 5.485 7.152 5.753 5.45.405 10.354-1.28 13.064-4.225.408.067.818.102 1.22.102.87 0 1.597-.184 2.1-.53.473-.326.697-.775.697-1.332 0-.25-.098-.475-.298-.62" />
       </svg>
     )
   }
 
-  // Default terminal cube icon
+  // 2. POSTGRESQL (Official Elephant silhouette)
+  if (norm.includes("postgres")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M18.89 12.02c-.37-.08-.74-.14-1.11-.18.23-.74.37-1.53.39-2.35.03-.99-.13-1.95-.49-2.82-.47-1.15-1.25-2.09-2.22-2.71C14.49 3.34 13.3 3 12 3c-1.3 0-2.49.34-3.46.96-.97.62-1.75 1.56-2.22 2.71-.36.87-.52 1.83-.49 2.82.02.82.16 1.61.39 2.35-.37.04-.74.1-1.11.18-.75.16-1.42.45-1.96.88-.53.42-.93.97-1.14 1.63-.3.94-.17 2.03.4 2.92.57.89 1.54 1.48 2.62 1.64.66.1 1.34.03 1.98-.2.27.76.67 1.45 1.18 2.02.6.67 1.33 1.17 2.14 1.48.82.31 1.71.46 2.67.46s1.85-.15 2.67-.46c.81-.31 1.54-.81 2.14-1.48.51-.57.91-1.26 1.18-2.02.64.23 1.32.3 1.98.2 1.08-.16 2.05-.75 2.62-1.64.57-.89.7-1.98.4-2.92-.21-.66-.61-1.21-1.14-1.63-.54-.43-1.21-.72-1.96-.88zM12 4.5c1.88 0 3.39 1.43 3.49 3.3-.46-.38-1-.68-1.58-.87-.84-.27-1.72-.34-2.58-.2-.87-.14-1.74-.07-2.58.2-.58.19-1.12.49-1.58.87.1-1.87 1.61-3.3 3.49-3.3zm-6.24 9.47c-.29-.06-.57-.04-.84.05-.28.1-.49.3-.59.58-.13.39-.07.82.17 1.18.24.36.63.6 1.06.67.28.04.56.01.82-.09.31-.12.59-.3.83-.54-.37-.62-.77-1.24-1.19-1.81-.09-.01-.17-.03-.26-.04zm12.48 0c-.09.01-.17.03-.26.04-.42.57-.82 1.19-1.19 1.81.24.24.52.42.83.54.26.1.54.13.82.09.43-.07.82-.31 1.06-.67.24-.36.3-.79.17-1.18-.1-.28-.31-.48-.59-.58-.27-.09-.55-.11-.84-.05z" />
+      </svg>
+    )
+  }
+
+  // 3. BUN (Official Bao Bun icon)
+  if (norm.includes("bun")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M19.16 8.35c-.47-.79-1.1-1.45-1.85-1.94-.85-.56-1.84-.88-2.88-.95-.49-.49-1.09-.85-1.76-1.04-.76-.22-1.56-.22-2.32 0-.67.19-1.27.55-1.76 1.04-1.04.07-2.03.39-2.88.95-.75.49-1.38 1.15-1.85 1.94-.58.98-.86 2.1-.86 3.25 0 2.22 1.07 4.25 2.78 5.48 1.48 1.07 3.32 1.67 5.22 1.67s3.74-.6 5.22-1.67c1.71-1.23 2.78-3.26 2.78-5.48 0-1.15-.28-2.27-.86-3.25zm-8.8-2.61c.45-.13.92-.13 1.37 0 .39.11.75.32 1.04.61-.47.16-.9.41-1.28.72-.25-.39-.57-.71-.95-.94-.06-.15-.12-.27-.18-.39zm-1.88 7.37c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm7.04 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z" />
+      </svg>
+    )
+  }
+
+  // 4. REACT (Standard Atomic Orbit)
+  if (norm.includes("react")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+        <ellipse cx="12" cy="12" rx="10.5" ry="4.2" transform="rotate(0 12 12)" />
+        <ellipse cx="12" cy="12" rx="10.5" ry="4.2" transform="rotate(60 12 12)" />
+        <ellipse cx="12" cy="12" rx="10.5" ry="4.2" transform="rotate(120 12 12)" />
+        <circle cx="12" cy="12" r="1.8" fill="currentColor" />
+      </svg>
+    )
+  }
+
+  // 5. VUE.JS (Iconic Triangle)
+  if (norm.includes("vue")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M2 3h3.5L12 15 18.5 3H22L12 21 2 3zm4.5 0h3L12 7.5 14.5 3h3L12 12 6.5 3z" />
+      </svg>
+    )
+  }
+
+  // 6. LARAVEL (Official angular geometric mark)
+  if (norm.includes("laravel")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M9.7 2.1a.7.7 0 00-.7.4L4.2 12.3a.7.7 0 000 .6l4.8 9.8a.7.7 0 00.6.4h9.7a.7.7 0 00.7-.4l4.8-9.8a.7.7 0 000-.6L20 2.5a.7.7 0 00-.6-.4H9.7zm.8 1.8h7.9l4.1 8.3-4.1 8.4h-7.9l-4.1-8.4 4.1-8.3zm4.8 3.5l-4.4 7.2h3.5l-1.3 4 4.8-7.5h-3.4l.8-3.7z" />
+      </svg>
+    )
+  }
+
+  // 7. TYPESCRIPT
+  if (norm.includes("typescript")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M1.5 0h21A1.5 1.5 0 0 1 24 1.5v21a1.5 1.5 0 0 1-1.5 1.5h-21A1.5 1.5 0 0 1 0 22.5v-21A1.5 1.5 0 0 1 1.5 0zm10.74 13.53h-3.3v7.41H6.75v-7.41H3.45V11.1h8.79v2.43zm8.91 2.37c-.24-.12-.6-.24-1.08-.36-.48-.12-.87-.24-1.17-.36-.45-.18-.78-.39-.99-.63-.21-.24-.32-.54-.32-.9 0-.42.15-.78.45-1.08.3-.3.72-.45 1.26-.45.54 0 .99.15 1.35.45.36.3.57.72.63 1.26h2.22c-.06-.9-.42-1.62-1.08-2.16-.66-.54-1.53-.81-2.61-.81-1.17 0-2.13.33-2.88.99-.75.66-1.13 1.53-1.13 2.61 0 .78.21 1.44.63 1.98.42.54 1.05.96 1.89 1.26.42.15.87.3 1.35.45.48.15.84.27 1.08.36.42.18.72.39.9.63.18.24.27.54.27.9 0 .48-.18.9-.54 1.26-.36.36-.87.54-1.53.54-.66 0-1.2-.18-1.62-.54-.42-.36-.66-.87-.72-1.53h-2.28c.06 1.14.48 2.01 1.26 2.61.78.6 1.83.9 3.15.9 1.29 0 2.34-.33 3.15-.99.81-.66 1.22-1.56 1.22-2.7 0-.84-.21-1.53-.63-2.07-.42-.54-1.08-.96-1.98-1.26z" />
+      </svg>
+    )
+  }
+
+  // 8. TAILWIND CSS (Classic twin waves)
+  if (norm.includes("tailwind")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+      </svg>
+    )
+  }
+
+  // 9. VITE (Lightning bolt inside V)
+  if (norm.includes("vite")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M23.12 3.63l-10.4 18.6a.75.75 0 01-1.34 0L.98 3.63a.75.75 0 01.93-1.05l9.96 4.1a.75.75 0 00.58 0l9.74-4.1a.75.75 0 01.93 1.05z" />
+      </svg>
+    )
+  }
+
+  // 10. GEMINI / AI / LLM (Sparkle 4-pointed Star)
+  if (norm.includes("gemini") || norm.includes("ai") || norm.includes("llm") || norm.includes("agent")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z" />
+      </svg>
+    )
+  }
+
+  // 11. CLOUDFLARE (Cloud with rays)
+  if (norm.includes("cloudflare")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M18.2 9.4A5.5 5.5 0 008.3 8a4.5 4.5 0 00-4.3 4.5c0 .3.03.6.1.9A3.5 3.5 0 005.5 20h13a3.5 3.5 0 003.5-3.5c0-1.8-1.3-3.3-3-3.5a5.4 5.4 0 00-.8-3.6z" />
+      </svg>
+    )
+  }
+
+  // 12. DOKPLOY / VPS / LINUX / SERVER (Server Stack)
+  if (norm.includes("dokploy") || norm.includes("vps") || norm.includes("linux") || norm.includes("server")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+        <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+        <line x1="6" x2="6.01" y1="6" y2="6" />
+        <line x1="6" x2="6.01" y1="18" y2="18" />
+      </svg>
+    )
+  }
+
+  // 13. AKUNTANSI / DOUBLE-ENTRY / FIFO / BOM / COA (Calculator/Balance scales)
+  if (norm.includes("akuntansi") || norm.includes("coa") || norm.includes("jurnal") || norm.includes("fifo") || norm.includes("bom") || norm.includes("double-entry") || norm.includes("rupiah") || norm.includes("ar/ap")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+        <rect width="16" height="20" x="4" y="2" rx="2" />
+        <line x1="8" x2="16" y1="6" y2="6" />
+        <line x1="16" x2="16" y1="14" />
+        <path d="M16 10h.01" />
+        <path d="M12 10h.01" />
+        <path d="M8 10h.01" />
+        <path d="M12 14h.01" />
+        <path d="M8 14h.01" />
+        <path d="M12 18h.01" />
+        <path d="M8 18h.01" />
+      </svg>
+    )
+  }
+
+  // Default fallback: Terminal Command Prompt
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <rect width="18" height="18" x="3" y="3" rx="2" />
-      <path d="m9 8 4 4-4 4" />
-      <path d="M14 16h2" />
+      <polyline points="4 17 10 11 4 5" />
+      <line x1="12" x2="20" y1="19" y2="19" />
     </svg>
   )
 }
