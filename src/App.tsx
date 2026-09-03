@@ -38,10 +38,11 @@ function Header() {
           </span>
         </a>
         <nav className="flex items-center gap-6 font-mono text-xs text-neutral-500">
-          <a href="#projects" className="hover:text-black transition-colors">01.PROYEK</a>
-          <a href="#architecture" className="hover:text-black transition-colors">02.ARSITEKTUR</a>
-          <a href="#skills" className="hover:text-black transition-colors">03.SKILLS</a>
-          <a href="#contact" className="hover:text-black transition-colors">04.KONTAK</a>
+          <a href="#about" className="hover:text-black transition-colors">01.BIOGRAFI</a>
+          <a href="#projects" className="hover:text-black transition-colors">02.PROYEK</a>
+          <a href="#architecture" className="hover:text-black transition-colors">03.ARSITEKTUR</a>
+          <a href="#skills" className="hover:text-black transition-colors">04.SKILLS</a>
+          <a href="#contact" className="hover:text-black transition-colors">05.KONTAK</a>
         </nav>
       </div>
     </header>
@@ -269,12 +270,83 @@ export default function App() {
       <main>
         <Hero />
 
-        {/* Section 01: Projects */}
+        {/* Section: Biografi Lengkap & Background */}
+        <section id="about" className="mx-auto w-full max-w-5xl px-6 py-20 border-b border-black/10">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <span className="font-mono text-xs text-neutral-500 uppercase tracking-widest block font-semibold">
+                01 / Profil &amp; Latar Belakang
+              </span>
+              <h2 className="font-display text-3xl font-bold text-black tracking-tight mt-1">
+                Biografi &amp; Filosofi Rekayasa
+              </h2>
+            </div>
+            <span className="hidden sm:inline font-mono text-xs text-neutral-500">
+              PRINSIP OPERASIONAL
+            </span>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 items-start">
+            <div className="md:col-span-2 space-y-4 text-neutral-700 text-sm sm:text-base leading-relaxed font-sans">
+              {profile.bio.story.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+            </div>
+
+            {/* Quick Facts Card */}
+            <div className="rounded-xl border border-black/10 bg-white p-6 shadow-sm space-y-4 font-mono text-xs">
+              <div className="border-b border-black/10 pb-3">
+                <span className="text-neutral-400 block mb-1">DOMISILI ASLI</span>
+                <span className="text-black font-bold text-sm">{profile.bio.origin}</span>
+              </div>
+              <div className="border-b border-black/10 pb-3">
+                <span className="text-neutral-400 block mb-1">KELAHIRAN</span>
+                <span className="text-black font-bold">{profile.bio.birth}</span>
+              </div>
+              <div className="border-b border-black/10 pb-3">
+                <span className="text-neutral-400 block mb-1">PENDIDIKAN</span>
+                <span className="text-black font-bold">{profile.bio.education}</span>
+              </div>
+              <div>
+                <span className="text-neutral-400 block mb-1">SPECIAL FOCUS</span>
+                <span className="text-neutral-800 leading-normal block">
+                  Deterministic ERP, LLM Agents (Tool-use), Double-entry Accounting, Offline-first POS.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline Milestones */}
+          <div className="mt-12 pt-8 border-t border-black/10">
+            <h3 className="font-mono text-xs text-neutral-500 uppercase tracking-wider mb-6 font-bold">
+              Jejak Pengalaman Lapangan &amp; Pengembangan
+            </h3>
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+              {profile.bio.milestones.map((m, idx) => (
+                <div key={idx} className="p-4 rounded-lg bg-white border border-black/10 shadow-sm flex flex-col justify-between">
+                  <div>
+                    <span className="font-mono text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded inline-block mb-2">
+                      {m.year}
+                    </span>
+                    <h4 className="font-display text-sm font-bold text-black mb-2">
+                      {m.role}
+                    </h4>
+                    <p className="text-xs text-neutral-600 font-sans leading-relaxed">
+                      {m.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Section 02: Projects */}
         <section id="projects" className="mx-auto w-full max-w-5xl px-6 py-20 border-b border-black/10">
           <div className="flex items-center justify-between mb-10">
             <div>
               <span className="font-mono text-xs text-neutral-500 uppercase tracking-widest block font-semibold">
-                01 / Portfolio Proyek
+                02 / Portfolio Proyek
               </span>
               <h2 className="font-display text-3xl font-bold text-black tracking-tight mt-1">
                 Sistem &amp; Aplikasi Produksi

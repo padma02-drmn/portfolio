@@ -7,6 +7,38 @@ export const profile = {
   phone: "0899-3766-775",
   summary:
     "Membangun sistem ERP production-grade terintegrasi LLM (Gemini, OpenAI-compatible), multi-agent workflow, dan automation pipeline dengan n8n, MCP tools, dan Docker. Paham akuntansi bisnis nyata — double-entry, HPP FIFO, piutang/utang — jadi AI yang dibangun benar-benar berguna untuk operasional, bukan eksperimen.",
+  bio: {
+    origin: "Singaraja, Buleleng, Bali",
+    birth: "24 Januari 2002",
+    education: "SMA IPA (Lulus 2020)",
+    story: [
+      "Perjalanan saya di dunia rekayasa perangkat lunak berakar dari pengalaman lapangan langsung. Sebelum mendalami integrasi AI dan arsitektur enterprise, saya bekerja di garda depan operasional bisnis mikro dan ritel: mengelola kasir & inventori di toko ritel listrik, hingga terjun langsung sebagai surveyor dan kolektor lapangan di BUMDes Bulian, Bali.",
+      "Interaksi langsung dengan para pemilik toko dan pembukuan manual mengajarkan saya satu hal krusial: perangkat lunak yang baik bukanlah yang paling rumit, melainkan yang paling tahan banting terhadap kegagalan operasional nyata. Ketika kasir kehilangan sinyal internet, bisnis tidak boleh terhenti. Ketika laporan laba rugi dihitung, tidak boleh ada selisih akibat pembulatan floating point.",
+      "Fondasi operasional dan akuntansi nyata inilah yang kini saya terapkan dalam merancang sistem ERP production-grade, integrasi AI Agent (function-calling terisolasi read-only), dan automasi multi-agent WhatsApp yang benar-benar memecahkan masalah efisiensi bisnis harian.",
+    ],
+    milestones: [
+      {
+        year: "2025–2026",
+        role: "Independen AI & Software Developer",
+        desc: "Membangun CAREDI ERP (distributor FMCG terintegrasi Gemini LLM & n8n) dan arsitektur ERP Resto & Coffee Shop dengan 35 Architecture Decision Records (ADR).",
+      },
+      {
+        year: "2025",
+        role: "Surveyor & Kolektor — BUMDes Bulian",
+        desc: "Survei kelayakan kredit calon peminjam, penjemputan dana tabungan nasabah, dan penagihan piutang jatuh tempo — fondasi pemahaman mendalam modul piutang (AR/AP).",
+      },
+      {
+        year: "2024–2025",
+        role: "Pengelola Toko — Toko Listrik Singaraja",
+        desc: "Operasional harian kasir & pembukuan akurat tanpa selisih, manajemen stok masuk/keluar, dan customer relations.",
+      },
+      {
+        year: "2020",
+        role: "SMA IPA Singaraja",
+        desc: "Menyelesaikan pendidikan menengah dengan fokus sains dan logika matematika.",
+      },
+    ],
+  },
 }
 
 export type Project = {
