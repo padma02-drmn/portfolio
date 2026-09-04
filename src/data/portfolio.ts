@@ -73,7 +73,7 @@ export const projects: Project[] = [
     live: "https://caredi-48-193-41-194.sslip.io",
     repo: "https://github.com/padma02-drmn/CAREDI",
     accent: "from-orange-500/20 to-transparent",
-    gallery: ["/projects/shot-caredi.png"],
+    gallery: ["/projects/caredi/caredi-overview.jpeg"],
   },
   {
     name: "ERP Resto & Coffee Shop",
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     ],
     repo: "https://github.com/padma02-drmn/simaset-enterprise",
     accent: "from-blue-500/20 to-transparent",
-    gallery: ["/projects/simaset/login-preview.png"],
+    gallery: ["/projects/siddeni/siddeni-overview.jpeg"],
   },
 ]
 
