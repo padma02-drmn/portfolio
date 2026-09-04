@@ -117,6 +117,24 @@ export const projects: Project[] = [
     accent: "from-blue-500/20 to-transparent",
     gallery: ["/projects/siddeni/siddeni-overview.jpeg"],
   },
+  {
+    name: "Balimart",
+    tagline: "ERP Minimarket Full-Stack TypeScript — Multi-Outlet & POS",
+    period: "2025–2026",
+    stack: ["Hono", "Drizzle ORM", "better-auth", "React 19", "TanStack", "PostgreSQL", "Azure"],
+    problem:
+      "Operasional ritel modern dan minimarket membutuhkan kecepatan pencatatan POS instan tanpa latensi, akuntansi otomatis, manajemen multi-outlet, dan kepastian akurasi stok (FIFO costing + HPP lock).",
+    solutions: [
+      "Modul operasional lengkap: POS / Kasir kilat, Manajemen Pembelian, Kartu Stok Otomatis (FIFO Costing + HPP Lock)",
+      "Akuntansi terintegrasi otomatis: Penjualan langsung menjurnal kas/piutang dan persediaan ke buku besar",
+      "Manajemen aset tetap, pencatatan payroll karyawan, dan audit log perubahan data",
+      "Arsitektur terpisah: REST API performa tinggi berbasis Hono + Drizzle ORM dengan frontend React SPA interaktif, dideploy di Microsoft Azure",
+    ],
+    live: "https://yellow-bay-0c4553900.7.azurestaticapps.net",
+    repo: "https://github.com/padma02-drmn/balimart-erp",
+    accent: "from-purple-500/20 to-transparent",
+    gallery: ["/projects/caredi/caredi-overview.jpeg"],
+  },
 ]
 
 export const adrHighlights = [

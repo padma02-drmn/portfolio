@@ -246,7 +246,7 @@ function Hero() {
           <div className="flex items-center gap-3 pt-2 sm:pt-0 sm:pl-4">
             <ShieldCheck className="size-4 text-emerald-700 flex-shrink-0" />
             <div>
-              <span className="text-black font-bold text-sm sm:text-base block leading-none">3 Deployed Apps</span>
+              <span className="text-black font-bold text-sm sm:text-base block leading-none">4 Deployed Apps</span>
               <span className="text-neutral-500 text-[11px]">Production Verified</span>
             </div>
           </div>
@@ -468,7 +468,7 @@ export default function App() {
               </h2>
             </div>
             <span className="hidden sm:inline font-mono text-xs text-neutral-500">
-              3 SISTEM TERVALIDASI
+              4 SISTEM TERVALIDASI
             </span>
           </div>
 
