@@ -23,18 +23,21 @@ import {
   SiShadcnui,
   SiHono,
   SiCapacitor,
+  SiInertia,
+  SiWhatsapp,
+  SiBetterauth,
 } from "@icons-pack/react-simple-icons"
-import { Terminal, Calculator, Bot } from "lucide-react"
+import { Terminal, Calculator, Bot, ShieldCheck, ShieldAlert, KeyRound, Lock, Activity, Cloud } from "lucide-react"
 
 export function TechIcon({ name, className = "size-3.5" }: { name: string; className?: string }) {
   const norm = name.toLowerCase()
 
-  // 1. Claude Code (Official Anthropic / Claude Code)
+  // 1. Claude Code
   if (norm.includes("claude")) {
     return <SiClaudecode className={className} />
   }
 
-  // 2. OpenAI Codex (Official OpenAI Vortex Spiral Logo)
+  // 2. OpenAI Codex
   if (norm.includes("codex")) {
     return (
       <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -43,7 +46,7 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     )
   }
 
-  // 3. Antigravity CLI (Official Antigravity Logo Mark)
+  // 3. Antigravity CLI
   if (norm.includes("antigravity")) {
     return (
       <img
@@ -54,7 +57,7 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     )
   }
 
-  // 4. Hermes Agent (Official Nous Research Hermes Logo Mark)
+  // 4. Hermes Agent
   if (norm.includes("hermes")) {
     return (
       <img
@@ -65,42 +68,81 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     )
   }
 
-  // 5. PostgreSQL
+  // 5. Inertia.js (Official logo)
+  if (norm.includes("inertia")) {
+    return <SiInertia className={className} />
+  }
+
+  // 6. WhatsApp / Fonnte
+  if (norm.includes("whatsapp") || norm.includes("fonnte") || norm.includes("wa")) {
+    return <SiWhatsapp className={className} />
+  }
+
+  // 7. better-auth
+  if (norm.includes("better-auth") || norm.includes("betterauth")) {
+    return <SiBetterauth className={className} />
+  }
+
+  // 8. Drizzle ORM
+  if (norm.includes("drizzle")) {
+    return <SiDrizzle className={className} />
+  }
+
+  // 9. RBAC (Role-Based Access Control)
+  if (norm.includes("rbac")) {
+    return <KeyRound className={className} />
+  }
+
+  // 10. Spatie (Activity Log)
+  if (norm.includes("spatie") || norm.includes("audit") || norm.includes("activity log") || norm.includes("rappasoft")) {
+    return <Activity className={className} />
+  }
+
+  // 11. Microsoft Azure (Official Azure 'A' polygonal mark)
+  if (norm.includes("azure")) {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+        <path d="M13.05 4.24l-4.7 9.17 6.4 5.99H24L13.05 4.24zM8.35 13.41L0 19.4h7.15l2.45-3.31-1.25-2.68z" />
+      </svg>
+    )
+  }
+
+  // 12. PostgreSQL
   if (norm.includes("postgres")) {
     return <SiPostgresql className={className} />
   }
 
-  // 6. MySQL
+  // 13. MySQL
   if (norm.includes("mysql")) {
     return <SiMysql className={className} />
   }
 
-  // 7. n8n
+  // 14. n8n
   if (norm.includes("n8n")) {
     return <SiN8n className={className} />
   }
 
-  // 8. Docker & Dokploy
+  // 15. Docker & Dokploy
   if (norm.includes("docker") || norm.includes("dokploy")) {
     return <SiDocker className={className} />
   }
 
-  // 9. Bun
+  // 16. Bun
   if (norm.includes("bun")) {
     return <SiBun className={className} />
   }
 
-  // 10. React
+  // 17. React
   if (norm.includes("react")) {
     return <SiReact className={className} />
   }
 
-  // 11. Vue
+  // 18. Vue
   if (norm.includes("vue")) {
     return <SiVuedotjs className={className} />
   }
 
-  // 12. Laravel & PHP
+  // 19. Laravel & PHP
   if (norm.includes("laravel")) {
     return <SiLaravel className={className} />
   }
@@ -108,7 +150,7 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     return <SiPhp className={className} />
   }
 
-  // 13. TypeScript & JavaScript
+  // 20. TypeScript & JavaScript
   if (norm.includes("typescript")) {
     return <SiTypescript className={className} />
   }
@@ -116,7 +158,7 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     return <SiJavascript className={className} />
   }
 
-  // 14. Tailwind CSS & Vite
+  // 21. Tailwind CSS & Vite
   if (norm.includes("tailwind")) {
     return <SiTailwindcss className={className} />
   }
@@ -133,7 +175,7 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     return <SiCapacitor className={className} />
   }
 
-  // 15. AI / Gemini
+  // 22. AI / Gemini
   if (norm.includes("gemini")) {
     return <SiGooglegemini className={className} />
   }
@@ -141,12 +183,7 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     return <Bot className={className} />
   }
 
-  // 16. Drizzle ORM
-  if (norm.includes("drizzle")) {
-    return <SiDrizzle className={className} />
-  }
-
-  // 17. Cloudflare & Infra
+  // 23. Cloudflare & Infra
   if (norm.includes("cloudflare")) {
     return <SiCloudflare className={className} />
   }
@@ -160,7 +197,7 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     return <SiGithub className={className} />
   }
 
-  // 18. Akuntansi, Finansial, Ledger, Laporan Keuangan
+  // 24. Akuntansi, Finansial, Ledger, Laporan Keuangan
   if (
     norm.includes("akuntansi") ||
     norm.includes("coa") ||
