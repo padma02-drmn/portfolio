@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react"
 import { X, ExternalLink } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { GithubMark } from "@/components/github-mark"
-import type { Project } from "@/data/portfolio"
+import type { LocalizedProject } from "@/data/portfolio"
 import { cn } from "@/lib/utils"
+import { useLang } from "@/context/language-context"
 
-// ponytail: dialog hand-rolled tanpa Radix — satu use case, ESC + overlay click cukup.
 export function ProjectDialog({
   project,
   onClose,
 }: {
-  project: Project | null
+  project: LocalizedProject | null
   onClose: () => void
 }) {
+  const { lang, t } = useLang()
   const [activeImg, setActiveImg] = useState(0)
 
   useEffect(() => {
@@ -44,23 +44,25 @@ export function ProjectDialog({
         role="dialog"
         aria-modal="true"
         aria-label={project.name}
-        className="bg-background animate-in fade-in slide-in-from-bottom-4 max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-t-2xl border shadow-2xl sm:rounded-2xl"
+        className="bg-white text-black animate-in fade-in slide-in-from-bottom-4 max-h-[92vh] w-full max-w-3xl overflow-y-auto rounded-t-2xl border border-black/10 shadow-2xl sm:rounded-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 z-10 flex items-center justify-between border-b bg-background/95 px-5 py-3 backdrop-blur">
-          <div className="flex items-center gap-2">
-            <h3 className="font-semibold">{project.name}</h3>
-            <span className="font-mono text-xs text-muted-foreground">{project.period}</span>
+        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-black/10 bg-white/95 px-6 py-4 backdrop-blur">
+          <div className="flex items-center gap-2.5">
+            <h3 className="font-display font-bold text-lg text-black">{project.name}</h3>
+            <span className="font-mono text-xs text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded border border-black/5">
+              {project.period}
+            </span>
           </div>
-          <Button variant="ghost" size="sm" onClick={onClose} aria-label="Tutup">
-            <X />
+          <Button variant="ghost" size="sm" onClick={onClose} aria-label={t("Tutup", "Close")} className="text-neutral-500 hover:text-black">
+            <X className="size-4" />
           </Button>
         </div>
 
-        <div className="p-5">
+        <div className="p-6">
           {gallery.length > 0 ? (
             <div>
-              <div className="overflow-hidden rounded-xl border bg-muted">
+              <div className="overflow-hidden rounded-xl border border-black/10 bg-neutral-100">
                 <img
                   src={gallery[activeImg]}
                   alt={`${project.name} — screenshot ${activeImg + 1}`}
@@ -69,15 +71,15 @@ export function ProjectDialog({
                 />
               </div>
               {gallery.length > 1 ? (
-                <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
+                <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
                   {gallery.map((g, i) => (
                     <button
                       key={g}
                       onClick={() => setActiveImg(i)}
-                      aria-label={`Lihat screenshot ${i + 1}`}
+                      aria-label={`Screenshot ${i + 1}`}
                       className={cn(
-                        "shrink-0 overflow-hidden rounded-md border transition-opacity",
-                        i === activeImg ? "border-primary ring-1 ring-primary" : "opacity-60 hover:opacity-100",
+                        "shrink-0 overflow-hidden rounded-lg border border-black/10 transition-opacity",
+                        i === activeImg ? "border-black ring-2 ring-black" : "opacity-60 hover:opacity-100",
                       )}
                     >
                       <img src={g} alt="" loading="lazy" className="h-14 w-24 object-cover object-top" />
@@ -86,53 +88,66 @@ export function ProjectDialog({
                 </div>
               ) : null}
             </div>
-          ) : (
-            <div className={cn("flex aspect-video w-full items-center justify-center rounded-xl border bg-gradient-to-br", project.accent ?? "from-muted to-transparent")}>
-              <span className="font-mono text-sm text-muted-foreground">Screenshot menyusul</span>
-            </div>
-          )}
+          ) : null}
 
-          <p className="text-muted-foreground mt-5 text-sm leading-relaxed">{project.tagline}</p>
+          <p className="text-neutral-600 mt-5 text-sm sm:text-base leading-relaxed font-medium">
+            {t(project.tagline.id, project.tagline.en)}
+          </p>
 
-          <div className="mt-5">
-            <h4 className="font-mono text-xs font-semibold tracking-wider text-primary uppercase">Masalah</h4>
-            <p className="mt-2 text-sm leading-relaxed">{project.problem}</p>
+          <div className="mt-6 border-t border-black/10 pt-4">
+            <h4 className="font-mono text-xs font-bold tracking-wider text-black uppercase mb-2">
+              {t("Masalah Operasional", "The Problem")}
+            </h4>
+            <p className="text-sm text-neutral-700 leading-relaxed font-sans">
+              {t(project.problem.id, project.problem.en)}
+            </p>
           </div>
 
-          <div className="mt-5">
-            <h4 className="font-mono text-xs font-semibold tracking-wider text-primary uppercase">Penyelesaian</h4>
-            <ul className="mt-2 space-y-2">
-              {project.solutions.map((s) => (
-                <li key={s} className="flex items-start gap-2.5 text-sm leading-relaxed">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
-                  {s}
+          <div className="mt-6 border-t border-black/10 pt-4">
+            <h4 className="font-mono text-xs font-bold tracking-wider text-black uppercase mb-3">
+              {t("Penyelesaian & Arsitektur Sistem", "Engineered Solutions")}
+            </h4>
+            <ul className="space-y-2.5 text-sm text-neutral-700 font-sans">
+              {(lang === "en" ? project.solutions.en : project.solutions.id).map((s, i) => (
+                <li key={i} className="flex items-start gap-2.5">
+                  <span className="text-neutral-400 font-mono text-xs mt-0.5 font-bold">0{i+1}.</span>
+                  <span>{s}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="mt-5">
-            <h4 className="font-mono text-xs font-semibold tracking-wider text-primary uppercase">Stack</h4>
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {project.stack.map((s) => (
-                <Badge key={s} variant="secondary" className="font-mono text-[11px]">
-                  {s}
-                </Badge>
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-black/10 pt-5">
+            <div className="flex flex-wrap gap-1.5">
+              {project.stack.map((st) => (
+                <span key={st} className="rounded border border-black/10 bg-neutral-100 px-2 py-0.5 font-mono text-xs text-neutral-800">
+                  {st}
+                </span>
               ))}
             </div>
-          </div>
 
-          <div className="mt-6 flex gap-3">
-            {project.live ? (
-              <Button onClick={() => window.open(project.live, "_blank")}>
-                <ExternalLink /> Live
-              </Button>
-            ) : null}
-            {project.repo ? (
-              <Button variant="outline" onClick={() => window.open(project.repo, "_blank")}>
-                <GithubMark className="size-4" /> Source
-              </Button>
-            ) : null}
+            <div className="flex items-center gap-3">
+              {project.repo && (
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-700 hover:text-black border border-black/15 bg-white px-3 py-1.5 rounded"
+                >
+                  <GithubMark className="size-3.5" /> Source Code
+                </a>
+              )}
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-white bg-black hover:bg-neutral-800 px-3.5 py-1.5 rounded"
+                >
+                  Live Demo <ExternalLink className="size-3" />
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>

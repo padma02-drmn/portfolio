@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { Calculator, Hotel, DollarSign, Percent, TrendingUp, RefreshCw } from "lucide-react"
+import { useLang } from "@/context/language-context"
 
 export function MetricsSimulator() {
+  const { t } = useLang()
+
   // State Input Hotel
   const [totalRooms, setTotalRooms] = useState(50)
   const [occupiedRooms, setOccupiedRooms] = useState(38)
@@ -33,10 +36,13 @@ export function MetricsSimulator() {
             <span>INTERACTIVE ENGINE // USALI STANDARDS</span>
           </div>
           <h3 className="font-display text-xl sm:text-2xl font-bold text-black">
-            Hospitality &amp; Hotel Metrics Simulator
+            {t("Hospitality & Hotel Metrics Simulator", "Hospitality & Hotel Metrics Simulator")}
           </h3>
           <p className="text-xs sm:text-sm text-neutral-600 font-sans mt-0.5">
-            Geser parameter operasional untuk melihat kalkulasi OCC, ADR, RevPAR, dan TRevPAR secara real-time.
+            {t(
+              "Geser parameter operasional untuk melihat kalkulasi OCC, ADR, RevPAR, dan TRevPAR secara real-time.",
+              "Adjust real-world operational parameters to observe live recalculations of OCC, ADR, RevPAR, and TRevPAR."
+            )}
           </p>
         </div>
 
@@ -49,7 +55,7 @@ export function MetricsSimulator() {
           }}
           className="inline-flex items-center gap-1.5 self-start font-mono text-xs text-neutral-500 hover:text-black border border-black/10 rounded px-2.5 py-1.5 bg-neutral-50 transition-colors"
         >
-          <RefreshCw className="size-3" /> Reset Nilai
+          <RefreshCw className="size-3" /> {t("Reset Nilai", "Reset Values")}
         </button>
       </div>
 
@@ -58,8 +64,8 @@ export function MetricsSimulator() {
         <div className="lg:col-span-6 space-y-5 font-mono text-xs">
           <div>
             <div className="flex justify-between text-neutral-700 font-bold mb-1.5">
-              <span>Total Kapasitas Kamar (Total Rooms):</span>
-              <span className="text-black font-bold">{totalRooms} Kamar</span>
+              <span>{t("Total Kapasitas Kamar (Total Rooms):", "Total Inventory (Available Rooms):")}</span>
+              <span className="text-black font-bold">{totalRooms} {t("Kamar", "Rooms")}</span>
             </div>
             <input
               type="range"
@@ -78,8 +84,8 @@ export function MetricsSimulator() {
 
           <div>
             <div className="flex justify-between text-neutral-700 font-bold mb-1.5">
-              <span>Kamar Terjual / Terisi (Occupied):</span>
-              <span className="text-black font-bold">{occupiedRooms} Kamar</span>
+              <span>{t("Kamar Terjual / Terisi (Occupied):", "Occupied Rooms (Sold):")}</span>
+              <span className="text-black font-bold">{occupiedRooms} {t("Kamar", "Rooms")}</span>
             </div>
             <input
               type="range"
@@ -94,7 +100,7 @@ export function MetricsSimulator() {
 
           <div>
             <div className="flex justify-between text-neutral-700 font-bold mb-1.5">
-              <span>Harga Kamar Rata-rata (Room Rate):</span>
+              <span>{t("Harga Kamar Rata-rata (Room Rate):", "Average Daily Rate (ADR):")}</span>
               <span className="text-black font-bold">{formatIDR(roomRate)}</span>
             </div>
             <input
@@ -110,7 +116,7 @@ export function MetricsSimulator() {
 
           <div>
             <div className="flex justify-between text-neutral-700 font-bold mb-1.5">
-              <span>Pendapatan F&amp;B &amp; Fasilitas Lain:</span>
+              <span>{t("Pendapatan F&B & Fasilitas Lain:", "F&B & Amenities Revenue:")}</span>
               <span className="text-black font-bold">{formatIDR(fbRevenue)}</span>
             </div>
             <input
@@ -139,7 +145,7 @@ export function MetricsSimulator() {
               </span>
             </div>
             <span className="font-mono text-[10px] text-neutral-500">
-              {occupiedRooms} dari {totalRooms} unit terisi
+              {occupiedRooms} {t("dari", "of")} {totalRooms} {t("unit terisi", "rooms occupied")}
             </span>
           </div>
 
@@ -155,7 +161,7 @@ export function MetricsSimulator() {
               </span>
             </div>
             <span className="font-mono text-[10px] text-neutral-500">
-              Rata-rata pendapatan per kamar laku
+              {t("Rata-rata pendapatan per kamar laku", "Average realized rate per sold room")}
             </span>
           </div>
 
@@ -171,7 +177,7 @@ export function MetricsSimulator() {
               </span>
             </div>
             <span className="font-mono text-[10px] text-neutral-400">
-              Kamar Terjual × ADR ÷ Total Kamar
+              {t("Kamar Terjual × ADR ÷ Total Kamar", "Sold Rooms × ADR ÷ Total Rooms")}
             </span>
           </div>
 
@@ -187,7 +193,7 @@ export function MetricsSimulator() {
               </span>
             </div>
             <span className="font-mono text-[10px] text-neutral-500">
-              Total Kamar + F&amp;B per inventory
+              {t("Total Kamar + F&B per inventory", "Rooms + F&B gross per inventory")}
             </span>
           </div>
         </div>
@@ -195,11 +201,11 @@ export function MetricsSimulator() {
 
       <div className="mt-6 border-t border-black/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono text-neutral-600">
         <div>
-          <span className="font-bold text-black">Total Omzet Harian (Room + F&amp;B):</span>{" "}
+          <span className="font-bold text-black">{t("Total Omzet Harian (Room + F&B):", "Total Daily Gross (Room + F&B):")}</span>{" "}
           <span className="text-emerald-700 font-bold">{formatIDR(totalRev)}</span>
         </div>
         <span className="text-[11px] text-neutral-500">
-          Formula deterministik · Standar USALI &amp; Akuntansi Perhotelan
+          {t("Formula deterministik · Standar USALI & Akuntansi Perhotelan", "Deterministic logic · USALI & Hospitality Accounting Standards")}
         </span>
       </div>
     </div>
