@@ -1,41 +1,41 @@
-import { MessageSquare, Bot, ArrowRight, Database, CheckCircle2, ShieldCheck } from "lucide-react"
+import { ShoppingCart, PackageCheck, ArrowRight, Database, CheckCircle2, ShieldCheck, Layers, Truck } from "lucide-react"
 
 export function ArchitectureFlowchart() {
   const steps = [
     {
       step: "01",
-      title: "Inbound WA Chat",
-      actor: "Customer",
-      tech: "WhatsApp API / WAHA",
-      desc: "Pesan pesanan bebas dalam bahasa alami (misal: 'Pagi bos, mau pesan teh botol 5 kerat dan kopi 2 karton kirim sore ya').",
+      title: "Taking Order & POS",
+      actor: "Sales / Kasir",
+      tech: "Dual-Channel Sales",
+      desc: "Transaksi kasir langsung di outlet atau pesanan sales kanvas keliling (Taking Order / TO) via smartphone.",
     },
     {
       step: "02",
-      title: "Orchestration & Queue",
-      actor: "Event Pipeline",
-      tech: "n8n Webhook + Retry 5x",
-      desc: "Menangkap payload webhook secara asinkron, memvalidasi nomor pengirim, dan mempersiapkan konteks sistem.",
+      title: "Pencatatan Embalase",
+      actor: "Gudang & Logistik",
+      tech: "Aset Botol & Krat",
+      desc: "Penerimaan botol kosong & krat titipan dari outlet/pelanggan, langsung dicatat ke stok sebagai aset persediaan.",
     },
     {
       step: "03",
-      title: "Deterministic AI Extraction",
-      actor: "LLM Agent",
-      tech: "Gemini Function-Calling",
-      desc: "Mengekstrak entitas produk, kuantitas satuan, dan instruksi pengiriman menjadi structured JSON strictly validated.",
+      title: "Potong Nota & Piutang",
+      actor: "Billing Engine",
+      tech: "Auto AR Deduction",
+      desc: "Nilai botol bekas otomatis memotong nilai faktur penjualan berjalan atau mengurangi saldo piutang tertagih pelanggan.",
     },
     {
       step: "04",
-      title: "DB Match & Inventory Check",
-      actor: "Backend Core",
-      tech: "Laravel 13 + PostgreSQL",
-      desc: "Pencocokan master barang, kalkulasi harga berjenjang, validasi limit piutang, dan penyiapan Draft Sales Order.",
+      title: "FIFO Batch & Delivery",
+      actor: "Inventory System",
+      tech: "PostgreSQL FIFO Costing",
+      desc: "Penetapan HPP produk keluar berbasis batch tertua (FIFO), penerbitan surat jalan armada, dan muat barang.",
     },
     {
       step: "05",
-      title: "Double-Entry Verification",
-      actor: "Approval Engine",
-      tech: "Audit & Ledger Lock",
-      desc: "Notifikasi otomatis ke WhatsApp owner untuk approval satu klik sebelum mutasi stok dan jurnal otomatis terbit.",
+      title: "Aging Piutang & Jurnal",
+      actor: "Accounting Core",
+      tech: "Double-Entry & Aging Report",
+      desc: "Penjurnalan otomatis append-only tanpa float, monitoring umur piutang (0–30, 31–60, 61–90+ hari), dan laporan laba rugi.",
     },
   ]
 
@@ -43,14 +43,14 @@ export function ArchitectureFlowchart() {
     <div className="rounded-2xl border border-black/10 bg-white p-6 sm:p-8 shadow-sm">
       <div className="border-b border-black/10 pb-4 mb-6">
         <div className="flex items-center gap-2 font-mono text-xs text-neutral-400 mb-1 font-bold">
-          <Bot className="size-3.5 text-black" />
-          <span>REAL ARCHITECTURE // CAREDI MULTI-AGENT PIPELINE</span>
+          <Truck className="size-3.5 text-black" />
+          <span>REAL LOGISTICS & FINANCE // CAREDI DISTRIBUTION PIPELINE</span>
         </div>
         <h3 className="font-display text-xl sm:text-2xl font-bold text-black">
-          Alur Data Multi-Agent WhatsApp ke ERP Production
+          Alur Penjualan TO / POS, Embalase Botol Bekas, &amp; Kontrol Piutang
         </h3>
         <p className="text-xs sm:text-sm text-neutral-600 font-sans mt-0.5">
-          Dari pesan teks bahasa alami pelanggan hingga menjadi Sales Order dan jurnal akuntansi terverifikasi tanpa intervensi manual.
+          Siklus operasional distributor FMCG: dari pemesanan Taking Order (TO), pencatatan fisik botol kosong pengurang nota, kalkulasi HPP FIFO, hingga manajemen umur piutang (aging schedule).
         </p>
       </div>
 

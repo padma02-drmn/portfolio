@@ -57,18 +57,18 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "CAREDI ERP",
-    tagline: "Sistem manajemen distributor FMCG — live di production",
+    tagline: "Sistem Manajemen Distributor FMCG & Logistik Minuman — Production",
     period: "2025–2026",
-    stack: ["Laravel 13", "Vue 3", "TypeScript", "PostgreSQL", "Gemini AI", "n8n", "Docker", "Dokploy"],
+    stack: ["Laravel 13", "Vue 3", "TypeScript", "PostgreSQL", "Gemini AI", "Docker", "Dokploy"],
     problem:
-      "Distributor minuman di Bali masih pakai catatan manual: order via WhatsApp, stok di kepala, piutang di buku tulis. Order masuk sebagai chat bebas yang harus diterjemahkan manual, dan pemilik tidak punya laporan real-time.",
+      "Distributor FMCG & minuman di Bali menghadapi kompleksitas operasional tinggi: dual-mode penjualan (POS Kasir Langsung vs Taking Order / Delivery), piutang macet tanpa kontrol umur jatuh tempo (aging), serta kebocoran aset kemasan/botol kosong bernilai tinggi (embalase) yang dititipkan ke pelanggan.",
     solutions: [
-      "AI decision support in-app: Gemini function-calling memanggil 7 laporan tools (ringkasan harian, margin produk/merek, piutang jatuh tempo, laba rugi) otomatis — read-only whitelist, AI tidak bisa mengubah transaksi",
-      "WhatsApp automation multi-agent: WAHA terima chat → n8n webhook → Gemini ekstrak item natural language jadi JSON → Laravel cocokkan produk/pelanggan dari DB → draft pesanan → auto-reply konfirmasi, retry 5x",
-      "Akuntansi double-entry append-only: HPP FIFO, jurnal posted tidak bisa diedit, koreksi lewat reversal",
-      "MCP integration: Claude Code deploy via Dokploy, query DB via Supabase, trigger workflow via n8n — tanpa buka dashboard",
-      "Multi-approval workflow, piutang + aging report, cetak nota ESC-P dot matrix 3 rangkap",
-      "Deploy: Docker + Dokploy di Hetzner VPS, Cloudflare proxy — 62/62 feature tests passing",
+      "Manajemen Embalase & Botol Bekas: Perlakuan botol kosong/krat sebagai aset persediaan (bukan beban lepas). Pembelian botol bekas dari pelanggan otomatis memotong nilai faktur penjualan (potong nota) atau langsung mengurangi saldo piutang berjalan (AR deduction).",
+      "Penjualan Fleksibel Dual-Channel: POS Kasir Langsung (instant invoice & kas) terintegrasi dengan modul Taking Order (TO) Delivery (muat armada, surat jalan delivery, serah terima botol, dan validasi retur penerimaan).",
+      "Manajemen Umur Piutang (AR Aging): Pelacakan jatuh tempo otomatis, pembatasan kredit limit per outlet, dan penjadwalan reminder penagihan berbasis aging schedule (0–30, 31–60, 61–90+ hari).",
+      "Valuasi Persediaan FIFO & Audit Log: Penentuan HPP dengan metode FIFO murni pada pergerakan batch gudang, audit trail mutasi stok, serta penanganan write-off kerugian barang bekas rusak yang ditolak principal.",
+      "AI Decision Support In-App: Gemini LLM terisolasi dengan pola function-calling (read-only 7 tools laporan) untuk analisis performa margin merek, tren penjualan harian, dan proyeksi piutang tanpa risiko mutasi data transaksi.",
+      "Infrastruktur & Reliability: Akuntansi double-entry append-only, multi-approval workflow, cetak nota dot matrix ESC-P, deployed via Docker & Dokploy di Hetzner VPS dengan 62/62 feature tests passing.",
     ],
     live: "https://caredi-48-193-41-194.sslip.io",
     repo: "https://github.com/padma02-drmn/CAREDI",
