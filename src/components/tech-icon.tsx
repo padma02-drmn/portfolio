@@ -21,17 +21,17 @@ import {
   SiPhp,
   SiDrizzle,
 } from "@icons-pack/react-simple-icons"
-import { Terminal, Calculator, Bot, Sparkles, Cpu, Orbit } from "lucide-react"
+import { Terminal, Calculator, Bot } from "lucide-react"
 
 export function TechIcon({ name, className = "size-3.5" }: { name: string; className?: string }) {
   const norm = name.toLowerCase()
 
-  // 1. Claude Code
+  // 1. Claude Code (Official Anthropic / Claude Code)
   if (norm.includes("claude")) {
     return <SiClaudecode className={className} />
   }
 
-  // 2. OpenAI Codex
+  // 2. OpenAI Codex (Official OpenAI Vortex Spiral Logo)
   if (norm.includes("codex")) {
     return (
       <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -40,26 +40,25 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     )
   }
 
-  // 3. Antigravity CLI (Gravitational Orbit System)
+  // 3. Antigravity CLI (Official Antigravity Logo Mark)
   if (norm.includes("antigravity")) {
     return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <circle cx="12" cy="12" r="3" fill="currentColor" />
-        <path d="M12 2a10 10 0 0 0-9.54 13.06A10 10 0 0 0 12 22a10 10 0 0 0 9.54-6.94A10 10 0 0 0 12 2z" />
-        <path d="m4.93 4.93 4.24 4.24" />
-        <path d="m14.83 14.83 4.24 4.24" />
-        <path d="m14.83 9.17 4.24-4.24" />
-        <path d="m4.93 19.07 4.24-4.24" />
-      </svg>
+      <img
+        src="/antigravity-icon.png"
+        alt="Antigravity"
+        className={`${className} object-contain inline-block rounded-xs`}
+      />
     )
   }
 
-  // 4. Hermes Agent (Nous Research Fleet Terminal)
+  // 4. Hermes Agent (Official Nous Research Hermes Logo Mark)
   if (norm.includes("hermes")) {
     return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
+      <img
+        src="/hermes-icon.png"
+        alt="Hermes Agent"
+        className={`${className} object-contain inline-block rounded-xs`}
+      />
     )
   }
 
