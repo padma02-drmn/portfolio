@@ -148,7 +148,7 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     return <SiGithub className={className} />
   }
 
-  // 18. Akuntansi, Finansial, Ledger
+  // 18. Akuntansi, Finansial, Ledger, Laporan Keuangan
   if (
     norm.includes("akuntansi") ||
     norm.includes("coa") ||
@@ -157,7 +157,12 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
     norm.includes("bom") ||
     norm.includes("double-entry") ||
     norm.includes("rupiah") ||
-    norm.includes("ar/ap")
+    norm.includes("ar/ap") ||
+    norm.includes("laporan keuangan") ||
+    norm.includes("neraca") ||
+    norm.includes("laba rugi") ||
+    norm.includes("cashflow") ||
+    norm.includes("financial")
   ) {
     return <Calculator className={className} />
   }
