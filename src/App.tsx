@@ -18,6 +18,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GithubMark } from "@/components/github-mark"
+import { LinkedinMark } from "@/components/linkedin-mark"
 import IntroOverlay from "@/components/intro-overlay"
 import { ProjectDialog } from "@/components/project-dialog"
 import { TechIcon } from "@/components/tech-icon"
@@ -220,6 +221,14 @@ function Hero() {
                 className="border-black/15 bg-white hover:bg-neutral-100 text-black font-mono text-xs rounded py-5"
               >
                 <GithubMark className="size-4 mr-2" /> GitHub
+              </Button>
+
+              <Button 
+                variant="outline" 
+                onClick={() => window.open(profile.linkedin, "_blank")}
+                className="border-black/15 bg-white hover:bg-neutral-100 text-black font-mono text-xs rounded py-5"
+              >
+                <LinkedinMark className="size-4 mr-2 text-[#0a66c2]" /> LinkedIn
               </Button>
             </div>
           </div>
@@ -735,10 +744,17 @@ export default function App() {
                 >
                   <GithubMark className="size-4 mr-2" /> padma02-drmn
                 </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => window.open(profile.linkedin, "_blank")}
+                  className="border-black/15 bg-white hover:bg-neutral-100 text-black font-mono text-xs py-5"
+                >
+                  <LinkedinMark className="size-4 mr-2 text-[#0a66c2]" /> LinkedIn
+                </Button>
               </div>
 
               <div className="mt-8 font-mono text-xs text-neutral-500">
-                {t("Lokasi:", "Location:")} {t(profile.location.id, profile.location.en)} · {t("Telepon:", "Phone:")} {profile.phone}
+                {t("Lokasi:", "Location:")} {t(profile.location.id, profile.location.en)}
               </div>
             </div>
           </div>

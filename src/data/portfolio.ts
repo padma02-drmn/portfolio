@@ -31,6 +31,7 @@ export const profile = {
   },
   email: "padmadarmawan351@gmail.com",
   github: "https://github.com/padma02-drmn",
+  linkedin: "https://www.linkedin.com/in/kadek-padma-darmawan",
   phone: "0899-3766-775",
   summary: {
     id: "Membangun sistem ERP production-grade terintegrasi LLM (Gemini, OpenAI-compatible), multi-agent workflow, dan automation pipeline dengan Docker. Paham akuntansi bisnis nyata — double-entry, HPP FIFO, piutang/utang — jadi AI yang dibangun benar-benar berguna untuk operasional nyata, bukan sekadar eksperimen.",
