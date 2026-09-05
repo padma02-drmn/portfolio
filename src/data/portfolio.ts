@@ -133,7 +133,7 @@ export const projects: Project[] = [
     live: "https://yellow-bay-0c4553900.7.azurestaticapps.net",
     repo: "https://github.com/padma02-drmn/balimart-erp",
     accent: "from-purple-500/20 to-transparent",
-    gallery: ["/projects/caredi/caredi-overview.jpeg"],
+    gallery: ["/projects/balimart/balimart-overview.jpeg"],
   },
 ]
 
