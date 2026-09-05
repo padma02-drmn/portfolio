@@ -24,6 +24,7 @@ import { ProjectDialog } from "@/components/project-dialog"
 import { TechIcon } from "@/components/tech-icon"
 import { MetricsSimulator } from "@/components/metrics-simulator"
 import { ArchitectureFlowchart } from "@/components/architecture-flowchart"
+import { BackToTop } from "@/components/back-to-top"
 import {
   accountingDomain,
   adrHighlights,
@@ -316,9 +317,11 @@ function ProjectCard({ project, onOpen }: { project: LocalizedProject; onOpen: (
               href={project.live}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 rounded bg-black text-white px-3.5 py-1.5 font-mono text-xs font-semibold hover:bg-neutral-800 transition-colors shadow-sm"
+              className="inline-flex items-center gap-1.5 rounded bg-black text-white px-3.5 py-1.5 font-mono text-xs font-semibold hover:bg-neutral-800 transition-colors shadow-sm"
             >
-              Live Demo <ExternalLink className="size-3" />
+              <span className="flex size-1.5 rounded-full bg-emerald-400 animate-ping" />
+              <span>Live Demo</span>
+              <ExternalLink className="size-3" />
             </a>
           )}
           {project.repo && (
@@ -769,6 +772,8 @@ export default function App() {
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
       />
+
+      <BackToTop />
     </div>
   )
 }
