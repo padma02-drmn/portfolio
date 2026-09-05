@@ -201,8 +201,9 @@ function Hero() {
               </Button>
 
               <Button 
+                variant="outline"
                 onClick={() => window.open("/cv-padma.pdf", "_blank")}
-                className="bg-emerald-700 text-white hover:bg-emerald-800 font-mono text-xs font-semibold uppercase tracking-wider px-5 py-5 rounded shadow-sm"
+                className="border-black/15 bg-white hover:bg-neutral-100 text-black font-mono text-xs font-semibold uppercase tracking-wider px-5 py-5 rounded shadow-xs"
               >
                 <Download className="size-4 mr-2" /> {t("Unduh CV (PDF)", "Download CV (PDF)")}
               </Button>
