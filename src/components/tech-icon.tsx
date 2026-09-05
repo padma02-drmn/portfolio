@@ -20,6 +20,8 @@ import {
   SiGithub,
   SiPhp,
   SiDrizzle,
+  SiShadcnui,
+  SiHono,
 } from "@icons-pack/react-simple-icons"
 import { Terminal, Calculator, Bot } from "lucide-react"
 
@@ -119,6 +121,12 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
   }
   if (norm.includes("vite")) {
     return <SiVite className={className} />
+  }
+  if (norm.includes("shadcn")) {
+    return <SiShadcnui className={className} />
+  }
+  if (norm.includes("hono")) {
+    return <SiHono className={className} />
   }
 
   // 15. AI / Gemini
