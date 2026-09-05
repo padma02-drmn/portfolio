@@ -623,15 +623,18 @@ export default function App() {
           <div className="flex items-center justify-between mb-10">
             <div>
               <span className="font-mono text-xs text-neutral-500 uppercase tracking-widest block font-semibold">
-                05 / Kapabilitas
+                05 / Kapabilitas &amp; Tools
               </span>
               <h2 className="font-display text-3xl font-bold text-black tracking-tight mt-1">
                 Tech Stack &amp; Domain Knowledge
               </h2>
             </div>
+            <span className="hidden sm:inline font-mono text-xs text-neutral-500">
+              MODERN AGENTIC TOOLCHAIN
+            </span>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {skillGroups.map((grp) => (
               <div
                 key={grp.group}

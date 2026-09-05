@@ -255,6 +255,15 @@ export const skillGroups = [
       "Cloudflare: DNS, proxy, R2 backup, CI/CD",
     ],
   },
+  {
+    group: "AI Agentic Development Tools",
+    items: [
+      "Claude Code (CLI Agentic Workflow)",
+      "OpenAI Codex (Automated Feature & PR)",
+      "Antigravity CLI (Agentic Coding & Review)",
+      "Hermes Agent (Autonomous Multi-Agent Fleet)",
+    ],
+  },
 ]
 
 export const principles = [
