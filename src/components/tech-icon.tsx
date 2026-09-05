@@ -22,6 +22,7 @@ import {
   SiDrizzle,
   SiShadcnui,
   SiHono,
+  SiCapacitor,
 } from "@icons-pack/react-simple-icons"
 import { Terminal, Calculator, Bot } from "lucide-react"
 
@@ -127,6 +128,9 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
   }
   if (norm.includes("hono")) {
     return <SiHono className={className} />
+  }
+  if (norm.includes("capacitor")) {
+    return <SiCapacitor className={className} />
   }
 
   // 15. AI / Gemini
