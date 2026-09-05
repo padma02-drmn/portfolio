@@ -26,6 +26,7 @@ import {
   SiInertia,
   SiWhatsapp,
   SiBetterauth,
+  SiTanstack,
 } from "@icons-pack/react-simple-icons"
 import { Terminal, Calculator, Bot, ShieldCheck, ShieldAlert, KeyRound, Lock, Activity, Cloud } from "lucide-react"
 
@@ -81,6 +82,11 @@ export function TechIcon({ name, className = "size-3.5" }: { name: string; class
   // 7. better-auth
   if (norm.includes("better-auth") || norm.includes("betterauth")) {
     return <SiBetterauth className={className} />
+  }
+
+  // 8. TanStack (Query / Table)
+  if (norm.includes("tanstack")) {
+    return <SiTanstack className={className} />
   }
 
   // 8. Drizzle ORM
