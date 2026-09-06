@@ -178,14 +178,7 @@ export const projects: LocalizedProject[] = [
     },
     repo: "https://github.com/padma02-drmn/erp-resto-coffe",
     accent: "from-emerald-500/20 to-transparent",
-    gallery: [
-      "/projects/erp-resto/dashboard.png",
-      "/projects/erp-resto/laporan-penjualan.png",
-      "/projects/erp-resto/buku-besar.png",
-      "/projects/erp-resto/menu-qr-katalog.png",
-      "/projects/erp-resto/grn-costguard.png",
-      "/projects/erp-resto/landing-web.png",
-    ],
+    gallery: ["/projects/erp-resto/erp-resto-overview.jpeg"],
   },
   {
     name: "SIMASET & SIDDENI",
