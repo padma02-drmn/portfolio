@@ -144,7 +144,7 @@ export const projects: LocalizedProject[] = [
     },
     repo: "https://github.com/padma02-drmn/CAREDI",
     accent: "from-orange-500/20 to-transparent",
-    gallery: ["/projects/caredi/caredi-overview.jpeg"],
+    gallery: ["/projects/caredi/caredi-overview.webp"],
   },
   {
     name: "ERP Resto & Coffee Shop",
@@ -178,7 +178,7 @@ export const projects: LocalizedProject[] = [
     },
     repo: "https://github.com/padma02-drmn/erp-resto-coffe",
     accent: "from-emerald-500/20 to-transparent",
-    gallery: ["/projects/erp-resto/erp-resto-overview.jpeg"],
+    gallery: ["/projects/erp-resto/erp-resto-overview.webp"],
   },
   {
     name: "SIMASET & SIDDENI",
@@ -210,7 +210,7 @@ export const projects: LocalizedProject[] = [
     },
     repo: "https://github.com/padma02-drmn/simaset-enterprise",
     accent: "from-blue-500/20 to-transparent",
-    gallery: ["/projects/siddeni/siddeni-overview.jpeg"],
+    gallery: ["/projects/siddeni/siddeni-overview.webp"],
   },
   {
     name: "Balimart",
@@ -240,7 +240,7 @@ export const projects: LocalizedProject[] = [
     },
     repo: "https://github.com/padma02-drmn/balimart-erp",
     accent: "from-purple-500/20 to-transparent",
-    gallery: ["/projects/balimart/balimart-overview.jpeg"],
+    gallery: ["/projects/balimart/balimart-overview.webp"],
   },
 ]
 
